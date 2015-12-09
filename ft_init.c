@@ -6,7 +6,7 @@
 /*   By: djoly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 14:45:03 by djoly             #+#    #+#             */
-/*   Updated: 2015/12/08 19:26:20 by djoly            ###   ########.fr       */
+/*   Updated: 2015/12/09 10:04:52 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	**ft_init(void)
 {
 	char **tab_id;
 
-	tab_id = (char **)malloc(sizeof(char));
+	tab_id = (char **)malloc(sizeof(char*)*19);
 	tab_id[0] = "10203";
 	tab_id[1] = "10506";
 	tab_id[2] = "10205";
