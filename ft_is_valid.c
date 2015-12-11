@@ -6,7 +6,7 @@
 /*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 15:30:34 by cdebord           #+#    #+#             */
-/*   Updated: 2015/12/11 19:02:32 by cdebord          ###   ########.fr       */
+/*   Updated: 2015/12/11 19:55:46 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		ft_is_valid(char **grid, int position, int size, t_tetri *list)
 	int		k;
 
 
-	ft_put_grid(grid);
-	ft_putnbr(position);
-	ft_putstr("\n\n");
+//	ft_put_grid(grid);
+//	ft_putnbr(position);
+//	ft_putstr("\n\n");
 
 	if (!(list))
 		return (1);
