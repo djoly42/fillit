@@ -55,4 +55,5 @@ int		**ft_pos_sqr(int *position);
 int		ft_is_valid(char **grid, int position, int size, t_tetri *list);
 void	ft_print(char **grid, t_tetri *list, int i, int j); 
 void	ft_delete(char **grid, char c, int size);
+void	ft_free(char **map, int size);
 #endif

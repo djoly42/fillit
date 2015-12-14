@@ -17,15 +17,21 @@ char	**ft_create_map(int size)
 	char **grid;
 	int i;
 
-	grid = (char**)malloc(size *sizeof(char*) + 1);
+	grid = (char**)malloc(sizeof(char*)* (size + 1));
 	i = 0;
 	if (grid == NULL)
+	  {
+	    printf("DANS FTCREATEMAP GRID == NULL\n");
 		return (NULL);
+	  }
 	while (i <= size + 1)
 	{
-		grid[i] = (char*)malloc(size *sizeof(char) + 1);
+	  grid[i] = (char*)malloc(sizeof(char) * (size + 1));
 		if (grid[i] == NULL)
+		  {
+	    printf("DANS FTCREATEMAP GRID == NULL\n");
 			return (NULL);
+		  }
 		i = i + 1;
 	}
 	ft_init_map(grid, size);

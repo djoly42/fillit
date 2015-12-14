@@ -27,16 +27,15 @@ int		ft_is_valid(char **grid, int position, int size, t_tetri *list)
 		return (1);
 
 	if (position == ((size * size)-1) && (list->piece == 'A'))
-		return (0); //ft_is_valid(grid, (list->prev->start + 1), size, list->prev));
-
-//	if (position == size * size)
-//		return (0);
-	if ((position + 1) == (size * size) && list)
+		return (0); 
+	if (position == ((size * size) - 1) && list)
 	{
 		ft_delete(grid, list->prev->piece, size);
 		return (ft_is_valid(grid, (list->prev->start + 1), size, list->prev));
 	}
 
+       	if (position == ((size * size) - 1))
+		return (0);
 
 	i = position / size;
 	j = position % size;
@@ -47,6 +46,11 @@ int		ft_is_valid(char **grid, int position, int size, t_tetri *list)
 	k = 0;
 	while (k < 4)
 	{
+	  if (grid[list->sqr[k][0] + i] == NULL)
+	      printf("DANS ISVALID GRID ==NULL\n");
+
+
+
 		if (!(grid[list->sqr[k][0] + i][list->sqr[k][1] + j] == '.'))
 			return(ft_is_valid(grid, (position + 1), size, list));
 		k++;

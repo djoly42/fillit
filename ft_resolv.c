@@ -23,14 +23,14 @@ void	ft_resolv(t_tetri *list_tetri)
 	ft_putnbr(size);//
 	ft_putchar('\n');//*/
 	map = ft_create_map(size);
-ft_putstr("debut while resolv\n");
+	printf("debut while resolv\n");
 	while (!(ft_is_valid(map, 0,size, list_tetri)))
 		{
-			ft_putstr("free ");
-			free(map);
+			printf("free ");
+			ft_free(map, size);
 			size++;
 			map = ft_create_map(size);
 		}
-	ft_putstr("\ngrid OK\n");
+	printf("\ngrid OK\n");
 	ft_put_grid(map);
 }

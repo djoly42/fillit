@@ -38,7 +38,7 @@ int		ft_main(int fd, t_tetri **lst_tetri)
 		ft_add_tetri(list, idtetri);
 	}
 	ft_add_char(*list);
-	ft_test_list(*list);
+	//	ft_test_list(*list);
 //	ft_affiche("FT_MAIN OK", 1);//
 	return (1);
 }
