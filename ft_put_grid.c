@@ -6,7 +6,7 @@
 /*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:04:25 by cdebord           #+#    #+#             */
-/*   Updated: 2015/12/11 16:10:21 by cdebord          ###   ########.fr       */
+/*   Updated: 2015/12/18 14:15:49 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_put_grid(char **grid)
 	i = 0;
 	while (grid[i][0] != '\0')
 	{
-		ft_putstr(grid[i++]);
+		ft_putstr(grid[i]);
 		ft_putchar('\n');
+		i++;
 	}
 }

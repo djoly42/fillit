@@ -6,7 +6,7 @@
 /*   By: djoly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 16:31:12 by djoly             #+#    #+#             */
-/*   Updated: 2015/12/08 19:33:55 by djoly            ###   ########.fr       */
+/*   Updated: 2015/12/18 14:37:07 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,3 @@ int		ft_test(char *bufmap)
 		return (0);
 	return (1);
 }
-
-/*
-  int		ft_fnd_one(char *bufmap)
-  {
-  int		i;
-
-  i = 0;
-  while (i < 25)
-  {
-  if(bufmap[i] = '#')
-  return (ft_fnd_tetriminos(i, bufmap))
-  i++
-  }
-  return (0);
-  }*/

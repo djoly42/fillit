@@ -6,7 +6,7 @@
 /*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 17:15:07 by cdebord           #+#    #+#             */
-/*   Updated: 2015/12/10 18:13:37 by cdebord          ###   ########.fr       */
+/*   Updated: 2015/12/18 12:07:24 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,18 @@
 
 char	**ft_create_map(int size)
 {
-	char **grid;
-	int i;
+	char	**grid;
+	int		i;
 
-	grid = (char**)malloc(sizeof(char*)* (size + 1));
+	grid = (char**)malloc(size * sizeof(char*) + 1);
 	i = 0;
 	if (grid == NULL)
-	  {
-	    printf("DANS FTCREATEMAP GRID == NULL\n");
 		return (NULL);
-	  }
 	while (i <= size + 1)
 	{
-	  grid[i] = (char*)malloc(sizeof(char) * (size + 1));
+		grid[i] = (char*)malloc(size * sizeof(char) + 1);
 		if (grid[i] == NULL)
-		  {
-	    printf("DANS FTCREATEMAP GRID == NULL\n");
 			return (NULL);
-		  }
 		i = i + 1;
 	}
 	ft_init_map(grid, size);

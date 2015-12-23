@@ -1,20 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/15 13:15:24 by cdebord           #+#    #+#             */
+/*   Updated: 2015/12/15 14:05:33 by cdebord          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fill_header.h"
 
 void	ft_free(char **map, int size)
 {
-  int	i;
+	int		i;
 
-      if(map == NULL)
-	printf("DANS FT_FREE MAP == NULL\n"); //
-
-  i = 0;
-  while (i < (size + 1)) // map + ligne de \0
-    {
-      if(map[i] == NULL)
-	printf("DANS FT_FREE MAP I == NULL\n"); //
-      free (map[i]);  //suprimme chaque ligne une par une
-      i++;
-    }
-  free(map);  // suprimme les pointeur qui stocke toutes les lignes
-  map = NULL;
+	i = 0;
+	while (i < size + 1)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	map = NULL;
 }

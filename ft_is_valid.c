@@ -6,56 +6,36 @@
 /*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 15:30:34 by cdebord           #+#    #+#             */
-/*   Updated: 2015/12/11 19:55:46 by djoly            ###   ########.fr       */
+/*   Updated: 2015/12/18 14:30:40 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fill_header.h"
 
-int		ft_is_valid(char **grid, int position, int size, t_tetri *list)
+int		ft_is_valid(char **grid, int *param, t_tetri *list, int *b)
 {
-	int		i;
-	int		j;
-	int		k;
-
-
-//	ft_put_grid(grid);
-//	ft_putnbr(position);
-//	ft_putstr("\n\n");
-
+	if (*b == 100000)
+		return (0);
 	if (!(list))
 		return (1);
-
-	if (position == ((size * size)-1) && (list->piece == 'A'))
-		return (0); 
-	if (position == ((size * size) - 1) && list)
-	{
-		ft_delete(grid, list->prev->piece, size);
-		return (ft_is_valid(grid, (list->prev->start + 1), size, list->prev));
-	}
-
-       	if (position == ((size * size) - 1))
+	if (param[0] == ((param[1] * param[1]) - 1) && (list->prev == NULL))
 		return (0);
-
-	i = position / size;
-	j = position % size;
-//	ft_putnbr(position);//
-//	ft_putchar(list->piece);
-
-
-	k = 0;
-	while (k < 4)
+	if (param[0] == ((param[1] * param[1]) - 1) && (list))
 	{
-	  if (grid[list->sqr[k][0] + i] == NULL)
-	      printf("DANS ISVALID GRID ==NULL\n");
-
-
-
-		if (!(grid[list->sqr[k][0] + i][list->sqr[k][1] + j] == '.'))
-			return(ft_is_valid(grid, (position + 1), size, list));
-		k++;
+		ft_delete(grid, list->prev->piece, param[1]);
+		param[0] = list->prev->start + 1;
+		*b = *b + 1;
+		return (ft_is_valid(grid, param, list->prev, b));
 	}
-	list->start = position;
-	ft_print(grid, list, i, j);
-	return(ft_is_valid(grid, 0, size, list->next));
+	if (!(ft_check_place(grid, param[0], param[1], list)))
+	{
+		param[0] = param[0] + 1;
+		*b = *b + 1;
+		return (ft_is_valid(grid, param, list, b));
+	}
+	list->start = param[0];
+	ft_print(grid, list, param[0], param[1]);
+	param[0] = 0;
+	*b = *b + 1;
+	return (ft_is_valid(grid, param, list->next, b));
 }

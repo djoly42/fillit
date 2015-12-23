@@ -6,36 +6,35 @@
 /*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 17:39:51 by cdebord           #+#    #+#             */
-/*   Updated: 2015/12/11 16:07:28 by cdebord          ###   ########.fr       */
+/*   Updated: 2015/12/18 14:33:47 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fill_header.h"
 
-char	**ft_init_map(char **grid , int size)
+char	**ft_init_map(char **grid, int size)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size)
-		{
-			grid[i][j] = '.';
-//			ft_putchar (grid[i][j]);
-			j++;
-		}
-		grid[i][j] = '\0';
-//		ft_putchar ('\n');
-		i++;
-	}
 	j = 0;
-	while(j <= size)
+	if (size > 1)
 	{
-		grid[i][j] = '\0';
-		j++;
+		while (i < size)
+		{
+			j = 0;
+			while (j < size)
+			{
+				grid[i][j] = '.';
+				j++;
+			}
+			grid[i][j] = '\0';
+			i++;
 		}
+		j = 0;
+	}
+	while (j <= size)
+		grid[i][j++] = '\0';
 	return (grid);
 }

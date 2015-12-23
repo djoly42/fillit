@@ -6,7 +6,7 @@
 /*   By: djoly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 09:51:02 by djoly             #+#    #+#             */
-/*   Updated: 2015/12/11 17:41:18 by cdebord          ###   ########.fr       */
+/*   Updated: 2015/12/18 12:02:23 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	ft_add_char(t_tetri *begin)
 	t_tetri *tmp;
 
 	i = 0;
-	tmp = NULL;//
+	tmp = NULL;
 	while (begin)
 	{
-		begin->start = -1;//
+		begin->start = 0;
 		begin->piece = 'A' + i;
-		begin->prev = tmp;//
+		begin->prev = tmp;
 		tmp = begin;
 		begin = begin->next;
 		i++;

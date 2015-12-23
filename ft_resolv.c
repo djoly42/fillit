@@ -6,7 +6,7 @@
 /*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 17:35:11 by cdebord           #+#    #+#             */
-/*   Updated: 2015/12/11 18:51:33 by cdebord          ###   ########.fr       */
+/*   Updated: 2015/12/18 14:36:33 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 void	ft_resolv(t_tetri *list_tetri)
 {
-	char **map;
-	int		size;
-	int		i;
+	char	**map;
+	int		param[2];
+	int		boucle;
 
-	size = ft_fill_sqrt(ft_list_size(list_tetri) * 4);
-/*	ft_putnbr(ft_list_size(list_tetri));//
-	ft_putnbr(size);//
-	ft_putchar('\n');//*/
-	map = ft_create_map(size);
-	printf("debut while resolv\n");
-	while (!(ft_is_valid(map, 0,size, list_tetri)))
+	boucle = 0;
+	param[0] = 0;
+	param[1] = ft_fill_sqrt(ft_list_size(list_tetri) * 4);
+	map = ft_create_map(param[1]);
+	while (!(ft_is_valid(map, param, list_tetri, &boucle)))
+	{
+		if (boucle == 100000)
+			boucle = 0;
+		else
 		{
-			printf("free ");
-			ft_free(map, size);
-			size++;
-			map = ft_create_map(size);
+			boucle = 0;
+			param[0] = 0;
+			ft_free(map, param[1]);
+			param[1]++;
+			map = ft_create_map(param[1]);
 		}
-	printf("\ngrid OK\n");
+	}
 	ft_put_grid(map);
 }

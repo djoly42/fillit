@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   ft_check_place.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djoly <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: cdebord <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 15:59:24 by djoly             #+#    #+#             */
-/*   Updated: 2015/12/18 14:34:16 by cdebord          ###   ########.fr       */
+/*   Created: 2015/12/14 14:14:51 by cdebord           #+#    #+#             */
+/*   Updated: 2015/12/18 12:05:23 by cdebord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fill_header.h"
 
-int		ft_list_size(t_tetri *begin)
+int		ft_check_place(char **grid, int position, int size, t_tetri *list)
 {
-	t_tetri *list;
 	int		i;
+	int		j;
+	int		k;
 
-	i = 0;
-	list = begin;
-	while (list)
+	i = position / size;
+	j = position % size;
+	k = 0;
+	while (k < 4)
 	{
-		i++;
-		list = list->next;
+		if (!(grid[i + list->sqr[k][0]][j + list->sqr[k][1]] == '.'))
+			return (0);
+		k++;
 	}
-	return (i);
+	return (1);
 }
